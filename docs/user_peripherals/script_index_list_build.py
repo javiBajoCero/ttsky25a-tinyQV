@@ -11,7 +11,11 @@ BRANCH   = "main"
 REL_PATH = "docs/user_peripherals"
 
 H1_RE = re.compile(r"^\s*#\s+(.+?)\s*$", re.MULTILINE)
-AUTHOR_LINE_RE = re.compile(r"^\s*(?:Author|Authors?)\s*:\s*(.+?)\s*$", re.IGNORECASE)
+AUTHOR_LINE_RE = re.compile(
+    r"^\s*\*{0,2}(?:Author|Authors?)\*{0,2}\s*:\s*(.+?)\s*$",
+    re.IGNORECASE
+)
+
 
 def strip_html_comments(md: str) -> str:
     return re.sub(r"<!--.*?-->", "", md, flags=re.DOTALL)
@@ -92,3 +96,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
